@@ -147,15 +147,6 @@ public class FloatingActionsMenu extends ViewGroup {
   private void createAddButton(Context context) {
     mAddButton = new AddFloatingActionButton(context) {
       @Override
-      void updateBackground() {
-        mPlusColor = mAddButtonPlusColor;
-        mColorNormal = mAddButtonColorNormal;
-        mColorPressed = mAddButtonColorPressed;
-        mStrokeVisible = mAddButtonStrokeVisible;
-        super.updateBackground();
-      }
-
-      @Override
       Drawable getIconDrawable() {
         final RotatingDrawable rotatingDrawable = new RotatingDrawable(super.getIconDrawable());
         mRotatingDrawable = rotatingDrawable;
@@ -606,6 +597,10 @@ public class FloatingActionsMenu extends ViewGroup {
     } else {
       super.onRestoreInstanceState(state);
     }
+  }
+
+  public AddFloatingActionButton getAddButton() {
+    return mAddButton;
   }
 
   public static class SavedState extends BaseSavedState {
